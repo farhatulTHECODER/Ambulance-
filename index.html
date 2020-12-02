@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Ambulance++</title>
+        <link rel="icon" href="Ambulance++Icon.png">
+
+        <style>
+          body{
+            background-image: url("lifeline-heartbeat.gif");
+          }
+html,body{
+    overflow-x: hidden;
+    background-color: #ceeb;
+}
+#mTest{
+    transform: translate(-10%,-100%);
+}
+/**, *::before, *::after{
+  box-sizing: border-box;
+}*/
+*{
+    font-family: 'Roboto',monospace;
+}
+/*#menuToggle
+{
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: tomato;
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0;
+  z-index: 2; 
+  
+  -webkit-touch-callout: none;
+}
+
+
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform: translate(-120%,-1500%);
+
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+
+#menu
+{
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}*/
+
+/*.nav-wrapper{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: "Trebuchet MS" , Arial;
+}
+.nav-wrapper::before,
+.nav-wrapper::after{
+  content: '';
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 50%;
+  background-color: #EAFBFF;
+}
+.nav-wrapper::after{
+  background-color: #208FF9;
+}
+
+.nav-wrapper nav{
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navigation{
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  padding-right: 30px;
+  line-height: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-wrapper ul{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  width: 0;
+  overflow: hidden;
+  transition: .4s cubic-bezier(.77,0,.18,1);
+}
+.nav-wrapper.active ul{
+  width: 420px;
+  margin-right: 20px;
+}
+
+a{
+  color: #888;
+  text-decoration: none;
+  transition: .3s;
+}
+a:hover{
+  color: #3C9DFB;
+}
+
+.nav-toogler{
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 48px;
+  padding: 14px 5px;
+  cursor: pointer;
+}
+.nav-wrapper:not(.active) .nav-toogler{
+  margin-left: -10px;
+}
+.nav-toogler::before,
+.nav-toogler::after{
+  content: '';
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: #3C9DFB;
+  transition: .4s cubic-bezier(.77,0,.18,1);
+}
+.nav-toogler::after {
+  margin-top: 10px;
+}
+.nav-wrapper.active .nav-toogler::before,
+.nav-wrapper.active .nav-toogler::after{
+  position: absolute;
+  top: 50%;
+  background-color: #3C9DFB;
+  transform: rotate(135deg);
+}
+.nav-wrapper.active .nav-toogler::after {
+  transform: rotate(-135deg);
+  margin-top: 0;
+}*/
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    position: relative;
+  }
+  
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  .topnav #myLinks {
+    display: none;
+  }
+  
+  /* Style navigation menu links */
+  .topnav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+  
+  /* Style the hamburger menu */
+  .topnav a.icon {
+    background: black;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Style the active link (or home/logo) */
+  .active {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+/*main hamburger menu*/
+/* The sidepanel menu */
+.sidepanel {
+    height: 509.5px; /* Specify a height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #80ceeb; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+  }
+  
+  /* The sidepanel links */
+  .sidepanel a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidepanel a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidepanel .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* Style the button that is used to open the sidepanel */
+  .openbtn {
+    height: 50px;
+    font-size: 40px;
+    cursor: pointer;
+    background-color: transparent;
+    color: #111222;
+    padding: 10px 15px;
+    border: none;
+    transform: translate(-10%,1%);
+  
+  }
+  
+  .openbtn:hover {
+    background-color: rgb(126, 115, 115);
+  }
+  /*Main hamburger menu ends here*/
+
+
+.ham {
+    position: absolute;
+    /* always keep ham on top of everything */
+    z-index: 1000;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    background-image: url("https://ljc-dev.github.io/testing0/ham.svg");
+    background-size: 100%;
+  }
+  
+  
+  /* change ham image to close */
+  .showClose {
+    background-image: url("https://ljc-dev.github.io/testing0/ham-close.svg");
+  }
+  
+  .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgb(180, 228, 9);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    color: rgb(20, 19, 19);
+    /* hide the menu above the screen by default */
+    transform: translateY(-100%);
+    /* transition adds a little animation when sliding in and out the menu */
+    transition: transform 0.2s ease;
+  }
+  
+  
+  .showNav {
+    /* show the menu */
+    transform: translateY(0);
+  }
+  
+  /* basic nav styling below */
+  
+  .navbar ul {
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .navbar ul li a {
+    color: white;
+    padding-bottom: 10px;
+    border-bottom: 2px solid black;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+  }
+  
+  .navbar ul li a:hover, .navbar ul li a:focus {
+    border-bottom: 2px solid white;
+  }
+
+#icon{
+    transform: translate(400%,-20%);
+}
+.copyright-txt
+{
+  color: #111222;
+  text-align: center;
+}
+.form{
+transform: translate(6%,-100%);
+}
+.form-input{
+  text-align: center;
+  width: 250px;
+  height: 30px;
+  border-radius: 10px;
+border: none;
+}
+.form-input:hover{
+background-color:rgb(18, 240, 221)
+}
+.form-btn{
+  background-color: seashell;
+width: 35px;
+  height: 32px;
+  border-radius: 10px;
+  border-color: yellow;
+transform: translate(623%,-100%);
+}
+        </style>
+
+        <script>
+//JavaScript Test 
+var Programmer = "Farhatul";
+console.log("Hello" +" "+Programmer);
+
+/* Set the width of the sidebar to 250px (show it) */
+function openNav() {
+    document.getElementById("mySidepanel").style.width = "250px";
+   }
+   
+   /* Set the width of the sidebar to 0 (hide it) */
+   function closeNav() {
+     document.getElementById("mySidepanel").style.width = "0";
+   }
+   
+
+/*let navWrapper = document.querySelector('.nav-wrapper'),
+			navToogler =  document.querySelector('.nav-toogler')
+
+		navToogler.addEventListener('click', function (event) {
+			navWrapper.classList.toggle('active')
+		})*/
+
+
+        </script>
+    </head>
+    <body>
+
+        <div id="mySidepanel" class="sidepanel">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+         <!--   <form method="get" action="https://www.google.com/search" class="form">
+              <input type="text"  name="q" placeholder="Search for medicines,hospitals etc" class="form-input">
+              <input type="submit" value="Go" class="form-btn">
+            </form>-->
+            <hr>
+            <a href="https://dir.indiamart.com/impcat/24-hours-ambulance-service.html">Ambulances</a>
+            <hr>
+            <a href="https://doctor.ndtv.com/hospitals">Hospitals</a>
+            <hr>
+            <a href="https://www.diagnosticcentres.in/diagnostic-centres/">Laboratory</a>
+            <hr>
+            <a href="https://www.pharmeasy.in">Order Medicines</a>
+            <hr>
+            <a href="license.html">License[V1.0]</a>
+         <!--  <hr>
+            <a href="#">Support</a>--> 
+
+            <br><br><br>
+           
+            <h3 style="color: #fff; font-family: sans-serif;" class="copyright-txt"> ©Copyright 2020 | Ambulance++ | All Rights Reserved</h3>
+          </div>
+          <button class="openbtn" onclick="openNav()">&#9776;</button>
+          
+
+  <!--   <br> 
+          <br> 
+
+
+
+<img src="Ambulance++Icon.png" width="100px" height="100px" id="icon"> --><h1 align="center">&nbsp;&nbsp;&nbsp;<font color="blue">Ambulance</font><font color="green">+</font><font color="red">+</font>           <hr>
+</h1>
+<!--We Provide you the Best-->
+
+<form method="get" action="https://www.google.com/search" class="form">
+  <input type="text"  name="q" placeholder="Search for doctors,medicines,hospitals etc" class="form-input">
+ <!-- <input type="submit" value="Go" class="form-btn">-->
+</form>
+<marquee behavior="" direction="left"><img src="Ambulance++Icon.png" width="100px" height="100px"></marquee>
+
+<h3 align="center">71+ different Doctors</h3>
+
+<!--Allergists/Immunologists-->
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 1>&nbsp;Allergists/Immunologists</h3>
+</a>
+<!--Anesthesiologists-->
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 2>&nbsp;Anesthesiologists</h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 3>&nbsp; Anatomist  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 4>&nbsp; Audiologist  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 5>&nbsp; Ayurvedic  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 6>&nbsp; Bariatric Surgeon  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 7>&nbsp; Cancer Surgeon  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 8>&nbsp; Cardiologist  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 9>&nbsp;  Cardiothoracic </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 10>&nbsp;  Chest Physician </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 11>&nbsp; Chiropractor  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 12>&nbsp; Clinical Genetic  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 13>&nbsp;  Clinical Hematology </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 14>&nbsp; Critical Care Physician  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 15>&nbsp; Dental Surgeon  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 16>&nbsp; Dermatologist  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 17>&nbsp; Diabetologist  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 18>&nbsp; Endocrinologist  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 19>&nbsp; ENT Surgeon  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 20>&nbsp; Family Physician  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 21>&nbsp;  Gastro-Enterologist </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 22>&nbsp; General Medicine  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 23>&nbsp; General Surgeon  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 24>&nbsp;  Gerontologist </h3>
+</a>
+
+<a href="https://www.vaidam.com/best-gynecologists-in-india" style="text-decoration: none;">
+    <h3> 25>&nbsp; Gynaecologist  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 26>&nbsp; Haematologist  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 27>&nbsp; Homeopathy Consultant  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 28>&nbsp; Hospital Administration  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 29>&nbsp; Industrial Medicine  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 30>&nbsp; Infertility  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 31>&nbsp; INTENSIVIST  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 32>&nbsp; Laparoscopic Surgeon  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 33>&nbsp;  Medico-Legal Consultant </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 34>&nbsp;  Microbiologist </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 35>&nbsp; Naturopathy  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 37>&nbsp;  Nephrologist </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 38>&nbsp; Neuro-Surgeon  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 39>&nbsp; Neurologist  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 40>&nbsp; Nuclear Medicine  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 41>&nbsp; Obesity Consultant  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 42>&nbsp; Occupational Therapist  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 43>&nbsp; Oncologist  </h3>
+</a>
+
+<a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+    <h3> 44>&nbsp; Opthamologist  </h3>
+</a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 45>&nbsp;  Orofacial Pain </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 46>&nbsp; Orthodonist  </h3>
+    </a>
+
+    <a href=http://www.doctorsdirectoryindia.com/doctor"" style="text-decoration: none;">
+        <h3> 47>&nbsp; Orthopaedic Surgeon  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 48>&nbsp; Paediatric Surgeon  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 49>&nbsp; Paediatric Urology  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 50>&nbsp;  Paediatrician </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 51>&nbsp; Pain Management  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 52>&nbsp; Pathologist  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 53>&nbsp; Paediatrician Cardiac  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 54>&nbsp; Pharmacologist  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 55>&nbsp; Physician  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 56>&nbsp;  Physiologist </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 57>&nbsp; Physiotherapist  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 58>&nbsp; Plastic Surgeon  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 59>&nbsp; Preventive &Social Medicine  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 60>&nbsp; Prosthodonist  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 62>&nbsp; Psychiatrist  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 63>&nbsp; Psychologist  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 64>&nbsp; Radiology  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 65>&nbsp; Rheumatologist  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 66>&nbsp; Sexologist  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 67>&nbsp; Speech Therapist  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 68>&nbsp;Spine Surgeon & Spinal Endoscopy   </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 69>&nbsp; Unani  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 70>&nbsp; Urologist  </h3>
+    </a>
+
+    <a href="http://www.doctorsdirectoryindia.com/doctor" style="text-decoration: none;">
+        <h3> 71>&nbsp; Vascular Surgeon  </h3>
+    </a>
+
+    <br>
+      <br>
+       <br>
+        <br>
+      <br>
+    <br>
+  <br>
+
+
+    </body>
+</html>
+
+
+       <!-- <div class="nav-wrapper">
+            <nav>
+                <div class="navigation">
+                    <ul class="nav-items">
+                        <li><a href="https://facebook.com/amaurydiallo"  target="_blank">Home</a></li>
+                        <li><a href="https://facebook.com/amaury224" target="_blank">Portfolio</a></li>
+                        <li><a href="https://facebook.com/amaurydiallo" target="_blank">About</a></li>
+                        <li><a href="https://facebook.com/amaurydiallo" target="_blank" title="+224 06 17 85">Contact</a></li>
+                    </ul>
+                    <div class="nav-toogler"></div>
+                </div>
+            </nav>
+        </div>-->  
+<!--<nav role="navigation">
+    <div id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+      
+    
+      <ul id="menu">
+        <a href="#"><li>Home</li></a>
+        <a href="#"><li>About</li></a>
+        <a href="#"><li>Info</li></a>
+        <a href="#"><li>Contact</li></a>
+        <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
+      </ul>
+    </div>
+</nav>-->
+    <!--  <input type="checkbox" />
+
+  <br>
+           -->
